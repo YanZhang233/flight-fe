@@ -1,0 +1,12 @@
+{{#list}}
+<tr>
+    <td><a href="./studentDetail.html?id={{applyUserId}}" class="student-name">{{applyUserName}}</a></td>
+    <td>{{applyUserId}}</td>
+    <td>{{createTime}}</td>
+    <td>{{status}}</td>
+    <td><a href="./admin.html?id={{id}}">同意请求</a></td>
+<tr>
+{{/list}}
+{{^list}}
+    <span>没有请求</span>
+{{/list}}

@@ -1,0 +1,35 @@
+
+    <div class="form-group">
+        <label class="info" for="username">用户名</label>
+        <input type="text" class="form-control" id="username"  value="{{userName}}" readonly="readonly" >
+    </div>
+    <div class="form-group">
+        <label class="info" for="email">邮箱</label>
+        <input type="email" class="form-control" id="email" value="{{email}}" readonly="readonly" >
+    </div>
+    <div class="form-group">
+        <label class="info" for="phone">手机号</label>
+        <input type="tel" class="form-control" id="phone"  value="{{phone}}" readonly="readonly" >
+    </div>
+    <div class="form-group">
+        <label class="info" for="gender">性别</label>
+        <input type="text" class="form-control" id="gender" value="{{gender}}" >
+    </div>
+    <div class="form-group">
+        <label class="info" for="home">家乡</label>
+        <input type="text" class="form-control" id="home"   >
+    </div>
+    <div class="form-group">
+        <label class="info" for="school">就读学校</label>
+        <input type="text" class="form-control" id="school">
+    </div>
+    <div class="form-group">
+        <label class="info" for="major">专业</label>
+        <input type="text" class="form-control" id="major">
+    </div>
+    <input type="submit" value="修改信息" class="btn" />
+    <button type="button" class="btn" onclick="location.href='./changePwd.html';">修改密码</button>
+    <button type="button" class="btn" onclick="location.href='./index.html';">退出登陆</button>
+
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>申请接机</title>
+
+    <%= require('html-loader!./layout/head-common.html')%>
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+    <span class="site-heading-upper text-primary mb-3">宣传语...</span>
+    <span class="site-heading-lower">xx接机</span>
+</h1>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">xxFlight</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="index.html">首页
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="request.html">申请接机</a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="studentMatch.html">匹配结果</a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a class="nav-link text-uppercase text-expanded" href="studentInfo.html">个人信息</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="err-item" >
+                    <p class="err-msg">Error</p>
+                </div>
+                <div class="bg-faded p-5 d-flex ml-auto rounded">
+
+                    <form class="request" id="request"  target="nm_iframe">
+                        <div class="form-group">
+                            <span class="info">姓名</span><input type="text" name="username" id="username"/>
+                        </div>
+                        <div class="form-group">
+                            <span class="info">微信</span><input type="text" name="wechat" />
+                        </div>
+                        <div class="form-group">
+                            <span class="info">手机号</span><input type="tel" name="phone" id="phone"/>
+                        </div>
+                        <div class="form-group">
+                            <span class="info">到达机场</span>
+                            <select name="airport" id="airport">
+                                <option>DCA</option>
+                                <option>IAD</option>
+                                <option>DUL</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <span class="info">目的地</span><input type="text" name="destination"  id="destination"/>
+                        </div>
+                        <div class="form-group">
+                            <span class="info">航班号</span><input type="text" name="flightInfo" id="flightInfo" />
+                        </div>
+                        <div class="form-group">
+                            <span class="info">到达时间</span><input type="text" name="time"  id="time" />
+                        </div>
+                        <div class="form-group">
+                            <span class="info">行李件数</span>
+                            <select name="baggage">
+                                <option>1件</option>
+                                <option>2件</option>
+                                <option>3件</option>
+                                <option>4件</option>
+                                <option>5件</option>
+                                <option>再多装不下啦～</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <span class="info">留言</span><input type="text" name="description"  id="description"/>
+                        </div>
+                        <input type="submit" value="提交" class="btn" />
+                    </form>
+
+                    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%= require('html-loader!./layout/footer.html')%>
+
+</body>
+
+</html>

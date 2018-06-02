@@ -1,0 +1,14 @@
+{{#list}}
+<tr>
+    <td><a href="./studentDetail.html?id={{requestUserId}}" class="student-name">{{requestUserName}}</a></td>
+    <td>{{airport}}</td>
+    <td>{{destination}}</td>
+    <td>{{flightInfo}}</td>
+    <td>{{time}}</td>
+    <td>2件</td>
+    <td><a href="./requestDetail.html?id={{requestUserId}}">详细信息</a></td>
+<tr>
+{{/list}}
+{{^list}}
+    <span>没有请求</span>
+{{/list}}

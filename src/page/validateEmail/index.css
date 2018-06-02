@@ -1,0 +1,8 @@
+body
+{
+    background: url("../../image/bg.jpg") fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+

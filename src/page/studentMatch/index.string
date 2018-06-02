@@ -1,0 +1,32 @@
+{{#list}}
+<h2 class="section-heading mb-5">
+    <span class="section-heading-lower">亲，您与接机人已匹配成功～</span>
+</h2>
+<ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+    <li class="list-unstyled-item list-hours-item d-flex">
+        接机人
+        <span class="ml-auto">{{userName}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        性别
+        <span class="ml-auto">{{gender}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        微信
+        <span class="ml-auto">dandan</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        手机号
+        <span class="ml-auto">{{phone}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        接机时间
+        <span class="ml-auto">4pm/May 23, 2018</span>
+    </li>
+</ul>
+{{/list}}
+{{^list}}
+<h2 class="section-heading mb-5">
+    <span class="section-heading-lower">亲，我们正在努力匹配中～</span>
+</h2>
+{{/list}}

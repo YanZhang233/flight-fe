@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>登录</title>
+    <%= require('html-loader!./layout/head-common.html') %>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pr-wrap">
+                <div class="pass-reset">
+                    <label>
+                        Enter the username you signed up with</label>
+                    <input type="text"  id="forgetUserName" placeholder="username" />
+                    <input type="submit"  id="forgetPass"  value="Submit" class="pass-reset-submit btn btn-primary btn-sm" />
+                </div>
+            </div>
+            <div class="wrap">
+                <p class="form-title">登录</p>
+                <div class="err-item" >
+                    <p class="err-msg">Error</p>
+                </div>
+                <form class="login" id="logForm" method="post" target="nm_iframe">
+                    <div class="form-group">
+                        <input type="text" name="username" id="username" placeholder="账号" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" placeholder="密码" />
+                    </div>
+                    <input type="submit" class="btn" value="登录" />
+                    <button type="button" class="btn" onclick="location.href='entry.html';">注册</button>
+                    <button type="button" class="btn" onclick="location.href='index.html';">返回主页</button>
+                    <div class="remember-forgot">
+                        <div class="row">
+                            <div class="col-md-6 forgot-pass-content">
+                                <a href="javascript:void(0)" class="forgot-pass">忘记密码</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+                <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= require('html-loader!./layout/footer.html')%>
+</body>
+
+
+</html>

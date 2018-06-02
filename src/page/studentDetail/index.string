@@ -1,0 +1,36 @@
+<h2 class="section-heading mb-5">
+    <span class="section-heading-lower">同学信息</span>
+</h2>
+<ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+    <li class="list-unstyled-item list-hours-item d-flex">
+        姓名
+        <span class="ml-auto">{{userName}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        邮箱
+        <span class="ml-auto">{{email}}</span>
+    </li>
+     <li class="list-unstyled-item list-hours-item d-flex">
+            微信或者QQ
+            <span class="ml-auto">{{wechat}}</span>
+        </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        手机号
+        <span class="ml-auto">{{phone}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        性别
+        <span class="ml-auto">{{gender}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        专业
+        <span class="ml-auto">计算机</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        详细信息
+        <span class="ml-auto">啦啦啦</span>
+    </li>
+
+
+
+</ul>

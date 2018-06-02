@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>注册</title>
+    <%= require('html-loader!./layout/head-common.html') %>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+                <p class="form-title">注册</p>
+                <div class="err-item" >
+                    <p class="err-msg">Error</p>
+                </div>
+                <div class="success-item">
+                    <p class="success-msg">注册成功,请验证邮箱,并等待管理员确认</p>
+                </div>
+                <form class="login" id="signUpForm" method="post" target="nm_iframe">
+                    <div class="form-group">
+                        <input type="text" name="userName" id="username" placeholder="用户名" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="edu邮箱" />
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="手机号" />
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" value="Male"  name="gender"/><span class="genderValue">男</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="Female"  name="gender"/><span class="genderValue">女</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="密码" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="passwordConfirm"  placeholder="确认密码" />
+                    </div>
+                    <input type="submit"  class="btn" value="注册" />
+                    <button type="button" class="btn" onclick="location.href='logIn.html';">登录</button>
+                    <button type="button" class="btn" onclick="location.href='index.html';">返回主页</button>
+                </form>
+
+                <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= require('html-loader!./layout/footer.html')%>
+</body>
+
+
+</html>

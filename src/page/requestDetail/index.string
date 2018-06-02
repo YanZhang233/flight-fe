@@ -1,0 +1,32 @@
+{{#list}}
+<ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+    <li class="list-unstyled-item list-hours-item d-flex">
+        姓名
+        <span class="ml-auto">{{requestUserName}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        接机机场
+        <span class="ml-auto">{{airport}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        目的地
+        <span class="ml-auto">{{destination}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        到达时间
+        <span class="ml-auto">{{time}}</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        行李件数
+        <span class="ml-auto">1件</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        附带家属人数
+        <span class="ml-auto">2人</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        留言
+        <span class="ml-auto">{{description}}</span>
+    </li>
+</ul>
+{{/list}}
