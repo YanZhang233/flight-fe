@@ -33,8 +33,8 @@ var config = {
         'requestDetail' : ['./src/page/requestDetail/index.js'],
     },
     output:{
-        path:'./dist/',
-        publicPath: '/dist/',
+        path: __dirname + '/dist/',
+        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.zhuo9529.com/flight_fe/dist/',
         filename: 'js/[name].js'
     },
 
