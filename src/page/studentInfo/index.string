@@ -29,11 +29,11 @@
     </div>
     <div class="form-group">
             <label class="info" for="graduateFrom">毕业院校</label>
-            <input type="text" class="form-control" id="graduateFrom" value="graduateFrom">
+            <input type="text" class="form-control" id="graduateFrom" value="{{graduateFrom}}">
         </div>
     <div class="form-group">
         <label class="info" for="major">专业</label>
-        <input type="text" class="form-control" id="major" value="major" >
+        <input type="text" class="form-control" id="major" value="{{major}}" >
     </div>
     <input type="submit" value="修改信息" class="btn" />
     <button type="button" id="activate" class="btn infoTable" >激活邮箱</button>
