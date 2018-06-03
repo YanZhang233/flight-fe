@@ -75,7 +75,8 @@ var page = {
                 graduateFrom: $.trim($('#graduateFrom').val()),
                 major: $.trim($('#major').val()),
                 homeTown: $.trim($('#hometown').val()),
-                actualName: $.trim($('#actualName').val())
+                actualName: $.trim($('#actualName').val()),
+                wechat: $.trim($('#wechat').val())
             },
             // 表单验证结果
             validateResult = this.formValidate(formData);
