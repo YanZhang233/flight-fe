@@ -38,7 +38,9 @@ var page = {
             destination : $.trim($("#destination").val()),
             description : $.trim($("#description").val()),
             flightInfo : $.trim($("#flightInfo").val()),
-            time : $.trim($("#time").val())
+            time : $.trim($("#time").val()),
+            baggage : $.trim($("#baggage").val()),
+            numOfPeople : $.trim($("#people").val())
         };
         _flight.addRequest(requestInfo,function () {
             _fl.successTips("添加成功，请等待匹配");
