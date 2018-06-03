@@ -1,8 +1,10 @@
 require('./index.css');
 var _fl = require('../../util/fl.js');
 var _admin = require('../../service/admin-service.js');
+var _flight = require('../../service/flight-service.js');
 var Pagination = require('../../util/pagination/index.js');
 var templateIndex = require("./index.string");
+var requestTemplate = require('./request.string');
 
 
 var page = {
@@ -16,6 +18,22 @@ var page = {
 
     init: function(){
         this.onload();
+        this.bindEvent();
+    },
+    bindEvent:function () {
+        var _this = this;
+        $('#listRequests').click(function () {
+            $(".tab").html('<tr> <th>申请人</th> <th>申请ID</th> <th>撤销</th> </tr>');
+            _this.loadRequestList();
+        });
+        $(document).on('click','#cancelRequest',function () {
+            var id = $('#requestId').html();
+            _flight.deleteById(id,function () {
+                _fl.successTips("操作成功");
+            },function (msg) {
+                _fl.errorTips(msg);
+            })
+        })
     },
     onload: function(){
         var _this = this;
@@ -92,6 +110,25 @@ var page = {
        },function (msg) {
            _fl.errorTips(msg);
        });
+    },
+    loadRequestList : function (pageIndex) {
+        var _this       = this,
+            requestHtml    = '';
+        // 请求接口
+        _flight.listAll(pageIndex,10, function(res){
+            requestHtml = _fl.renderHtml(requestTemplate, {
+                list :  res.content
+            });
+            $(".tab").append(requestHtml);
+            _this.loadPagination({
+                totalPages      : res.totalPages,
+                pageNum         : (res.number+1),
+                last            : res.last,
+                first           : res.first,
+            });
+        }, function(msg){
+            alert(msg);
+        });
     }
 };
 

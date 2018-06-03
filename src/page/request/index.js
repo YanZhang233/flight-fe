@@ -41,7 +41,8 @@ var page = {
             time : $.trim($("#time").val())
         };
         _flight.addRequest(requestInfo,function () {
-            alert("添加成功，请等待匹配");
+            _fl.successTips("添加成功，请等待匹配");
+            window.location.href = './studentMatch.html';
         },function (msg) {
             formError.show(msg);
         });

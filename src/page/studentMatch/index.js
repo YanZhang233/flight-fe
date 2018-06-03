@@ -2,29 +2,43 @@ require("./index.css");
 var _fl = require('../../util/fl.js');
 var _user   = require('../../service/user-service.js');
 var templateIndex = require("./index.string");
-
+var _flight =  require('../../service/flight-service.js');
 
 //逻辑部分
 var page = {
     init: function () {
+        this.onLoad();
         this.bindEvent();
     },
-    bindEvent : function(){
-        _user.checkIfLogin(function (user) {
-            //res就是user
+    onLoad : function(){
             var matchHTML = '';
-            _user.getRequest(user.id,function (res) {
+            _flight.getRequest(function (res) {
+                res.content.forEach(function (element,index,object) {
+                    element.isTaken = (element.status===1);
+                    if(element.status===-1) object.splice(index,1);
+                });
+                res.ifTaken = (res.content.status ===1);
                 matchHTML = _fl.renderHtml(templateIndex,{
                     list : res.content
                 });
-                $('#matchBody').html(matchHTML);
+                $('#matchForm').html(matchHTML);
             },function (msg) {
-                $("#jiazaizhong").text("没有找到你的匹配！");
-            })
-        },function (msg) {
-            alert(msg);
-        })
+                _fl.errorTips(msg);
+            });
+    },
+    bindEvent : function () {
+            //按delete
+            $(document).on('click', '.cancel', function(){
+                var id = $('#requestId').html();
+                _flight.deleteById(id,function () {
+                    _fl.successTips("取消成功");
+                    window.location.href = './studentMatch.html';
+                },function (msg) {
+                    _fl.errorTips(msg);
+                })
+            });
     }
+
 };
 
 //Jquery ready的时候调用

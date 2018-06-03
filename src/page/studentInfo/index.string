@@ -28,8 +28,8 @@
         <input type="text" class="form-control" id="major">
     </div>
     <input type="submit" value="修改信息" class="btn" />
-    <button type="button" class="btn" onclick="location.href='./changePwd.html';">修改密码</button>
-    <button type="button" class="btn" onclick="location.href='./index.html';">退出登陆</button>
+<button type="button" class="btn" onclick="location.href='./changePwd.html';">修改密码</button>
+<button type="button" class="btn" id="logout">退出登陆</button>
 
 
 

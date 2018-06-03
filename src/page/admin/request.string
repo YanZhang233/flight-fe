@@ -1,0 +1,10 @@
+{{#list}}
+<tr>
+    <td><a href="./studentDetail.html?id={{requestUserId}}" class="student-name">{{requestUserName}}</a></td>
+    <td><a href="./requestDetail.html?id={{id}}" id="requestId">{{id}}</a></td>
+    <td><a id="cancelRequest">撤销</a></td>
+<tr>
+{{/list}}
+{{^list}}
+    <span>没有请求</span>
+{{/list}}

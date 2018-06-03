@@ -150,7 +150,6 @@ p {
 
 .cta .cta-inner:before {
     border-radius: 0.5rem;
-    content: '';
     position: absolute;
     top: -0.5rem;
     bottom: -0.5rem;
@@ -246,3 +245,35 @@ p {
 .font-weight-light {
     font-weight: 100 !important;
 }
+
+/*error-msg*/
+#err-item{
+    position: relative;
+    padding: 4px 0 4px 40px;
+    margin-bottom: 10px;
+    border:1px solid red;
+    color: red;
+    background: #fde9e9;
+    display: none;
+}
+
+p.err-msg{
+    margin-bottom: 0px;
+}
+
+/*success-msg*/
+#success-item{
+    position: relative;
+    padding: 4px 0 4px 40px;
+    margin-bottom: 10px;
+    border:1px solid green;
+    color: black;
+    background: #fde9e9;
+    display: none;
+    text-align: center;
+}
+
+p.success-msg{
+    margin-bottom: 0px;
+}
+

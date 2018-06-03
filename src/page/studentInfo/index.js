@@ -6,16 +6,36 @@ var templateIndex = require("./index.string");
 var page = {
     init: function(){
         this.onLoad();
+        this.bindEvent();
     },
     onLoad : function(){
         // 加载用户信息
         this.loadUserInfo();
-
+    },
+    bindEvent : function () {
+        //提交表单
         var _this = this;
         $("#updateFrom").submit(function () {
             _this.update();
         });
-    },
+
+        //退出登录
+        // $("#logout").click(function () {
+        //     _user.logout(function () {
+        //         window.location.href = './index.html';
+        //     },function (msg) {
+        //         _fl.errorTips(msg);
+        //     })
+        // })
+        $(document).on('click','#logout',function () {
+                _user.logout(function () {
+                     window.location.href = './index.html';
+                 },function (msg) {
+                     _fl.errorTips(msg);
+                 });
+        });
+    }
+    ,
     //update用户信息
     update : function () {
         var userInfo = {
@@ -30,18 +50,11 @@ var page = {
     // 加载用户信息
     loadUserInfo : function(){
         var userHtml = '';
-        _user.checkIfLogin(function (res) {
-            if(res){
-                _user.getUserInfo(res.id,function(res){
-                    userHtml = _fl.renderHtml(templateIndex, res);
-                    $('#updateFrom').html(userHtml);
-                }, function(msg){
-                    _fl.errorTips(msg);
-                });
-            }
-        },function (msg) {
-           //强制登录
-            _fl.doLogin();
+        _user.getCurUserInfo(function(res){
+            userHtml = _fl.renderHtml(templateIndex, res);
+            $('#updateFrom').html(userHtml);
+        }, function(msg){
+            _fl.errorTips(msg);
         });
     }
 };

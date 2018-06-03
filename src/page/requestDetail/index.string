@@ -2,7 +2,7 @@
 <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
     <li class="list-unstyled-item list-hours-item d-flex">
         姓名
-        <span class="ml-auto">{{requestUserName}}</span>
+        <span class="ml-auto"><a href="./studentDetail.html?id={{requestUserId}}">{{requestUserName}}</a></span>
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
         接机机场
@@ -21,12 +21,20 @@
         <span class="ml-auto">1件</span>
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
-        附带家属人数
+        人数
         <span class="ml-auto">2人</span>
+    </li>
+    <li class="list-unstyled-item list-hours-item d-flex">
+        接机人
+        <span class="ml-auto"><a href="./studentDetail.html?id={{takenUserId}}">{{takenUserName}}</a></span>
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
         留言
         <span class="ml-auto">{{description}}</span>
     </li>
 </ul>
+{{#isNottaken}}
+<button class="btn-primary" id="taken">接受请求</button>
+{{/isNottaken}}
+
 {{/list}}

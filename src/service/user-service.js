@@ -67,7 +67,7 @@ var _user = {
             error   : reject
         });
     },
-    // 获取用户信息
+    // 获取用户信息通过用户的id
     getUserInfo : function(param,resolve, reject){
         _fl.request({
             url     : _fl.getServerUrl('/user/'+param),
@@ -76,6 +76,16 @@ var _user = {
             error   : reject
         });
     },
+    //获取当前登录用户信息
+    getCurUserInfo:function (resolve, reject) {
+        _fl.request({
+            url     : _fl.getServerUrl('/user'),
+            method  : 'GET',
+            success : resolve,
+            error   : reject
+        });
+    }
+    ,
     // 登出
     logout : function(resolve, reject){
         _fl.request({
@@ -103,16 +113,6 @@ var _user = {
             method  : 'PATCH',
             success : resolve,
             error   : reject
-        });
-    },
-    //按照登录用户取得request
-    getRequest: function (userId,resolve,reject) {
-        _fl.request({
-            url : _fl.getServerUrl('/flight/'+userId),
-            data : null,
-            method  : 'GET',
-            success : resolve,
-            error : reject
         });
     },
     emailResetPass : function (username,resolve,reject) {
@@ -153,6 +153,14 @@ var _user = {
             url     : _fl.getServerUrl('/flight'),
             data    : request,
             method  : 'POST',
+            success : resolve,
+            error   : reject
+        });
+    },
+    validateEmail : function (username,token,resolve,reject) {
+        _fl.request({
+            url     : _fl.getServerUrl('/user/email/'+username+"/"+token),
+            method  : 'PATCH',
             success : resolve,
             error   : reject
         });

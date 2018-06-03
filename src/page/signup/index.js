@@ -78,6 +78,7 @@ var page = {
         // 验证成功
         if (validateResult.status) {
             _user.registerCommon(formData, function (res) {
+                formError.hide();
                 formSuccess.show();
                 //发邮件
                 _this.sendEmail(username);
