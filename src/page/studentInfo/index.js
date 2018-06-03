@@ -34,6 +34,15 @@ var page = {
                      _fl.errorTips(msg);
                  });
         });
+
+        $(document).on('click','#activate',function () {
+            var username = $('#username').val();
+            _this.sendEmail(username,function () {
+                _fl.successTips("发送成功");
+            },function (msg) {
+                _fl.errorTips(msg);
+            })
+        });
     }
     ,
     //update用户信息
@@ -43,8 +52,8 @@ var page = {
         }
         _user.updateUserInfo(userInfo,function () {
             _fl.successTips("Update success");
-        },function () {
-            _fl.errorTips("Update error");
+        },function (msg) {
+            _fl.errorTips(msg);
         })
     },
     // 加载用户信息
@@ -56,6 +65,13 @@ var page = {
         }, function(msg){
             _fl.errorTips(msg);
         });
+    },
+    sendEmail : function (username) {
+        _user.getValidateEmail(username,function () {
+            _fl.successTips("邮件已发送");
+        },function (msg) {
+            _fl.errorTips(msg);
+        })
     }
 };
 $(function(){
