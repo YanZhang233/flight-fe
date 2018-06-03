@@ -48,8 +48,13 @@ var page = {
     //update用户信息
     update : function () {
         var userInfo = {
-            gender : $("#gender").val()
-        }
+            gender: $.trim($("#gender").val()),
+            graduateFrom: $.trim($('#graduateFrom').val()),
+            major: $.trim($('#major').val()),
+            homeTown: $.trim($('#hometown').val()),
+            actualName: $.trim($('#actualName').val()),
+            wechat: $.trim($('#wechat').val())
+        };
         _user.updateUserInfo(userInfo,function () {
             _fl.successTips("Update success");
         },function (msg) {

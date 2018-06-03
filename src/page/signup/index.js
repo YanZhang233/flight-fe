@@ -71,7 +71,7 @@ var page = {
                 phone: $.trim($('#phone').val()),
                 passwordConfirm: $.trim($('#passwordConfirm').val()),
                 password: $.trim($('#password').val()),
-                gender: $.trim($("[name='gender']").val()),
+                gender: $.trim($("#gender").val()),
                 graduateFrom: $.trim($('#graduateFrom').val()),
                 major: $.trim($('#major').val()),
                 homeTown: $.trim($('#hometown').val()),
