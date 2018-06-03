@@ -24,13 +24,14 @@
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
         专业
-        <span class="ml-auto">计算机</span>
+        <span class="ml-auto">{{major}}</span>
     </li>
-    <li class="list-unstyled-item list-hours-item d-flex">
-        详细信息
-        <span class="ml-auto">啦啦啦</span>
+     <li class="list-unstyled-item list-hours-item d-flex">
+        来自
+        <span class="ml-auto">{{homeTown}}</span>
     </li>
-
-
-
+     <li class="list-unstyled-item list-hours-item d-flex">
+        毕业于
+        <span class="ml-auto">{{graduateFrom}}</span>
+    </li>
 </ul>

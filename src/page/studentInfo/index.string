@@ -4,8 +4,16 @@
         <input type="text" class="form-control" id="username"  value="{{userName}}" readonly="readonly" >
     </div>
     <div class="form-group">
+            <label class="info" for="name">真实姓名</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+    <div class="form-group">
         <label class="info" for="email">邮箱</label>
         <input type="email" class="form-control" id="email" value="{{email}}" readonly="readonly" >
+    </div>
+    <div class="form-group">
+            <label class="info" for="wechat">微信</label>
+            <input type="email" class="form-control" id="wechat">
     </div>
     <div class="form-group">
         <label class="info" for="phone">手机号</label>
@@ -17,19 +25,24 @@
     </div>
     <div class="form-group">
         <label class="info" for="home">家乡</label>
-        <input type="text" class="form-control" id="home"   >
+        <input type="text" class="form-control" id="home">
     </div>
     <div class="form-group">
-        <label class="info" for="school">就读学校</label>
-        <input type="text" class="form-control" id="school">
+            <label class="info" for="graduateFrom">毕业院校</label>
+            <input type="text" class="form-control" id="graduateFrom">
+        </div>
+    <div class="form-group">
+        <label class="info" for="university">就读学校</label>
+        <input type="text" class="form-control" id="university">
     </div>
     <div class="form-group">
         <label class="info" for="major">专业</label>
         <input type="text" class="form-control" id="major">
     </div>
     <input type="submit" value="修改信息" class="btn" />
-<button type="button" class="btn" onclick="location.href='./changePwd.html';">修改密码</button>
-<button type="button" class="btn" id="logout">退出登陆</button>
+    <button type="button" id="activate" class="btn infoTable" >激活邮箱</button>
+    <button type="button" class="btn" onclick="location.href='./changePwd.html';">修改密码</button>
+    <button type="button" class="btn" id="logout">退出登陆</button>
 
 
 

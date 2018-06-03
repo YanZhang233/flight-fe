@@ -37,11 +37,11 @@
         <span class="ml-auto">{{time}}</span>
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
-          航班信息
+        航班信息
        <span class="ml-auto">{{flightInfo}}</span>
     </li>
-    <input type="button" class="cancel"  value="取消申请" />
-    <a href="./requestDetail.html?id={{id}}">查看具体信息</a>
+    <a class="btn btn-primary" href="./requestDetail.html?id={{id}}">查看具体信息</a>
+    <input type="button" class="cancel btn btn-primary"  value="取消申请" />
 </ul>
 {{/list}}
 
