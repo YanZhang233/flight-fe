@@ -1,10 +1,21 @@
 {{#list}}
 <tr>
     <td><a href="./studentDetail.html?id={{applyUserId}}" class="student-name">{{applyUserName}}</a></td>
-    <td>{{applyUserId}}</td>
+    <td id="volunteerId">{{id}}</td>
     <td>{{createTime}}</td>
-    <td>{{status}}</td>
-    <td><a href="./admin.html?id={{id}}">同意请求</a></td>
+    {{#validate}}
+    <td>是</td>
+    {{/validate}}
+    {{^validate}}
+    <td>否</td>
+    {{/validate}}
+    {{#permited}}
+    <td>通过</td>
+    {{/permited}}
+    {{^permited}}
+    <td>未通过</td>
+    {{/permited}}
+    <td><a id="permit">同意请求</a></td>
 <tr>
 {{/list}}
 {{^list}}

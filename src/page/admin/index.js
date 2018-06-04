@@ -23,7 +23,7 @@ var page = {
     bindEvent:function () {
         var _this = this;
         $('#listRequests').click(function () {
-            $(".tab").html('<tr> <th>申请人</th> <th>申请ID</th> <th>撤销</th> </tr>');
+            $(".tab").html('<tr> <th>申请人</th> <th>详细情况</th> <th>撤销</th> </tr>');
             _this.loadRequestList();
         });
         $(document).on('click','#cancelRequest',function () {
@@ -33,17 +33,17 @@ var page = {
             },function (msg) {
                 _fl.errorTips(msg);
             })
-        })
+        });
+        $(document).on('click','#permit',function () {
+            var id = $('#volunteerId').html();
+            _this.permit(id);
+        });
     },
     onload: function(){
         var _this = this;
-        var paramId = _fl.getUrlParam("id");
-        if(paramId){
-            this.permit(paramId);
-        }
         this.loadList();
         $("#unchecked").click(function () {
-            $(".tab").html( "<tr> <th>姓名</th> <th>userId</th> <th>申请时间</th> <th>状态</th> </tr>");
+            $(".tab").html( "<tr> <th>姓名</th> <th>ID</th> <th>申请时间</th> <th>是否激活邮箱</th> <th>状态</th> <th>点击同意</th>></tr>");
             _this.loadUncheck();
         });
         $("#all").click(function () {
@@ -56,6 +56,11 @@ var page = {
             listHtml    = '';
         // 请求接口
         _admin.listUncheckedVolunteer(0,10, function(res){
+            res.content.forEach(function (value) {
+                value.createTime = value.createTime.substr(0,10);
+               value.permited = (value.status===0);
+               value.validate = (value.emailValidate===0);
+            });
             listHtml = _fl.renderHtml(templateIndex, {
                 list :  res.content
             });
@@ -76,6 +81,11 @@ var page = {
             listHtml    = '';
         // 请求接口
         _admin.listAllVolunteer(pageIndex,10, function(res){
+            res.content.forEach(function (value) {
+                value.createTime = value.createTime.substr(0,10);
+                value.permited = (value.status===0);
+                value.validate = (value.emailValidate===0);
+            });
             listHtml = _fl.renderHtml(templateIndex, {
                 list :  res.content
             });

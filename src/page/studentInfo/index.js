@@ -56,7 +56,8 @@ var page = {
             wechat: $.trim($('#wechat').val())
         };
         _user.updateUserInfo(userInfo,function () {
-            _fl.successTips("Update success");
+            _fl.successTips("Success");
+            window.location.href = './studentInfo.html';
         },function (msg) {
             _fl.errorTips(msg);
         })
