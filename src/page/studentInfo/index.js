@@ -49,7 +49,7 @@ var page = {
     update : function () {
         var userInfo = {
             gender: $.trim($("#gender").val()),
-            graduateFrom: $.trim($('#graduateFrom').val()),
+            graduatedFrom: $.trim($('#graduatedFrom').val()),
             major: $.trim($('#major').val()),
             homeTown: $.trim($('#home').val()),
             actualName: $.trim($('#name').val()),
