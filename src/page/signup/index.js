@@ -72,7 +72,7 @@ var page = {
                 passwordConfirm: $.trim($('#passwordConfirm').val()),
                 password: $.trim($('#password').val()),
                 gender: $.trim($("#gender").val()),
-                graduateFrom: $.trim($('#graduateFrom').val()),
+                graduatedFrom: $.trim($('#graduatedFrom').val()),
                 major: $.trim($('#major').val()),
                 homeTown: $.trim($('#hometown').val()),
                 actualName: $.trim($('#actualName').val()),

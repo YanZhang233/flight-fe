@@ -71,7 +71,12 @@ var page = {
                 phone: $.trim($('#phone').val()),
                 passwordConfirm: $.trim($('#passwordConfirm').val()),
                 password: $.trim($('#password').val()),
-                gender: $.trim($("[name='gender']").val())
+                gender: $.trim($("#gender").val()),
+                graduatedFrom: $.trim($('#graduatedFrom').val()),
+                major: $.trim($('#major').val()),
+                homeTown: $.trim($('#hometown').val()),
+                actualName: $.trim($('#actualName').val()),
+                wechat: $.trim($('#wechat').val())
             },
             // 表单验证结果
             validateResult = this.formValidate(formData);

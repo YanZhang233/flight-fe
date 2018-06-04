@@ -32,6 +32,6 @@
     </li>
      <li class="list-unstyled-item list-hours-item d-flex">
         毕业于
-        <span class="ml-auto">{{graduateFrom}}</span>
+        <span class="ml-auto">{{graduatedFrom}}</span>
     </li>
 </ul>
