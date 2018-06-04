@@ -5,6 +5,7 @@ var _flight = require('../../service/flight-service.js');
 var Pagination = require('../../util/pagination/index.js');
 var templateIndex = require("./index.string");
 var requestTemplate = require('./request.string');
+var usersTemplate = require('./users.string');
 
 
 var page = {
@@ -23,7 +24,7 @@ var page = {
     bindEvent:function () {
         var _this = this;
         $('#listRequests').click(function () {
-            $(".tab").html('<tr> <th>申请人</th> <th>详细情况</th> <th>撤销</th> </tr>');
+            $('#pagination').html("");
             _this.loadRequestList();
         });
         $(document).on('click','#cancelRequest',function () {
@@ -38,17 +39,22 @@ var page = {
             var id = $('#volunteerId').html();
             _this.permit(id);
         });
+        $(document).on('click','#listUsers',function () {
+            $('#pagination').html("");
+            _this.loadUsersList();
+        });
+        $("#unchecked").click(function () {
+            $('#pagination').html("");
+            _this.loadUncheck();
+        });
+        $("#all").click(function () {
+            $('#pagination').html("");
+            _this.loadList();
+        });
     },
     onload: function(){
         var _this = this;
         this.loadList();
-        $("#unchecked").click(function () {
-            $(".tab").html( "<tr> <th>姓名</th> <th>ID</th> <th>申请时间</th> <th>是否激活邮箱</th> <th>状态</th> <th>点击同意</th>></tr>");
-            _this.loadUncheck();
-        });
-        $("#all").click(function () {
-            window.location.href = './admin.html';
-        });
     },
     //显示未通过的
     loadUncheck : function () {
@@ -64,6 +70,7 @@ var page = {
             listHtml = _fl.renderHtml(templateIndex, {
                 list :  res.content
             });
+            $(".tab").html( "<tr> <th>姓名</th> <th>ID</th> <th>申请时间</th> <th>是否激活邮箱</th> <th>状态</th> <th>点击同意</th>></tr>");
             $(".tab").append(listHtml);
             _this.loadPagination({
                 totalPages      : res.totalPages,
@@ -89,6 +96,7 @@ var page = {
             listHtml = _fl.renderHtml(templateIndex, {
                 list :  res.content
             });
+            $(".tab").html( "<tr> <th>姓名</th> <th>ID</th> <th>申请时间</th> <th>是否激活邮箱</th> <th>状态</th> <th>点击同意</th>></tr>");
             $(".tab").append(listHtml);
             _this.loadPagination({
                 totalPages      : res.totalPages,
@@ -129,8 +137,9 @@ var page = {
             requestHtml = _fl.renderHtml(requestTemplate, {
                 list :  res.content
             });
+            $(".tab").html('<tr> <th>申请人</th> <th>详细情况</th> <th>撤销</th> </tr>');
             $(".tab").append(requestHtml);
-            _this.loadPagination({
+            _this.loadRequestPagination({
                 totalPages      : res.totalPages,
                 pageNum         : (res.number+1),
                 last            : res.last,
@@ -139,7 +148,54 @@ var page = {
         }, function(msg){
             alert(msg);
         });
-    }
+    },
+    loadRequestPagination : function (pageInfo) {
+        var _this = this;
+        this.pagination ? '' : (this.pagination = new Pagination());
+        //对于空对象，先把pageinfo 放进去，再把后面放进去
+        this.pagination.render($.extend({}, pageInfo, {
+            container : $('#pagination'),
+            onSelectPage : function(pageIndex){
+                _this.data.listParam.pageIndex = pageIndex;
+                _this.loadRequestList(_this.data.listParam.pageIndex);
+            }
+        }));
+    },
+
+    loadUsersList : function (pageIndex) {
+        var _this       = this,
+            requestHtml    = '';
+        // 请求接口
+        _admin.listAllUsers(pageIndex,2, function(res){
+            requestHtml = _fl.renderHtml(usersTemplate, {
+                list :  res.content
+            });
+            $(".tab").html('<tr> <th>UserName</th> <th>Email</th> <th>真实姓名</th> <th>详细信息</th> </tr>');
+            $(".tab").append(requestHtml);
+            _this.loadUserPagination({
+                totalPages      : res.totalPages,
+                pageNum         : (res.number+1),
+                last            : res.last,
+                first           : res.first,
+            });
+        }, function(msg){
+            alert(msg);
+        });
+    },
+
+    // 加载 user 分页信息
+    loadUserPagination : function(pageInfo){
+        var _this = this;
+        this.pagination ? '' : (this.pagination = new Pagination());
+        //对于空对象，先把pageinfo 放进去，再把后面放进去
+        this.pagination.render($.extend({}, pageInfo, {
+            container : $('#pagination'),
+            onSelectPage : function(pageIndex){
+                _this.data.listParam.pageIndex = pageIndex;
+                _this.loadUsersList(_this.data.listParam.pageIndex);
+            }
+        }));
+    },
 };
 
 $(function(){

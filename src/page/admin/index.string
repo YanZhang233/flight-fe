@@ -1,6 +1,6 @@
 {{#list}}
 <tr>
-    <td><a href="./studentDetail.html?id={{applyUserId}}" class="student-name">{{applyUserName}}</a></td>
+    <td><a href="./studentDetail.html?id={{applyUserId}}" target="_blank" class="student-name">{{applyUserName}}</a></td>
     <td id="volunteerId">{{id}}</td>
     <td>{{createTime}}</td>
     {{#validate}}

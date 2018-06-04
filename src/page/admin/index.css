@@ -392,4 +392,8 @@ tr:hover {background-color:#f5f5f5;}
     color: #536a8f;
 }
 
+#listUsers{
+    cursor: pointer;
+}
+
 

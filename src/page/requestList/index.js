@@ -26,13 +26,13 @@ var page = {
             listHtml    = '';
         // 请求接口
         _flight.listAll(pageIndex,10, function(res){
-            res.content.forEach(function (element,index,object) {
+            res.content.forEach(function (element) {
                 element.isTaken = (element.status===1);
-                if(element.status===-1) object.splice(index,1);
             });
             listHtml = _fl.renderHtml(templateIndex, {
                 list :  res.content
             });
+            $(".tab").html(" <tr> <th>姓名</th> <th>到达机场</th> <th>目的地</th> <th>航班号</th> <th>到达时间</th>  <th>是否匹配</th> <th>点击获取</th> </tr>");
             $(".tab").append(listHtml);
             _this.loadPagination({
                 totalPages      : res.totalPages,

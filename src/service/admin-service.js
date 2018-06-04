@@ -32,6 +32,18 @@ var _flight = {
             success : resolve,
             error   : reject
         })
+    },
+    listAllUsers : function (pageIndex,pageSize,resolve,reject) {
+        _fl.request({
+            url     : _fl.getServerUrl('/admin/users'),
+            data    : {
+                pageIndex : pageIndex,
+                pageSize  : pageSize
+            },
+            method  : 'GET',
+            success : resolve,
+            error   : reject
+        })
     }
 };
 
