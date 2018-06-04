@@ -3,8 +3,8 @@
 </h2>
 <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
     <li class="list-unstyled-item list-hours-item d-flex">
-        姓名
-        <span class="ml-auto">{{userName}}</span>
+        真实姓名
+        <span class="ml-auto">{{actualName}}</span>
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
         邮箱
