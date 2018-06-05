@@ -164,7 +164,25 @@ var _user = {
             success : resolve,
             error   : reject
         });
+    },
+    deleteUser : function (id,resolve,reject) {
+        _fl.request({
+            url     : _fl.getServerUrl('/user/'+id),
+            method  : 'DELETE',
+            success : resolve,
+            error   : reject
+        });
+    },
+    validateUser : function (id,resolve,reject) {
+        _fl.request({
+            url     : _fl.getServerUrl('/user/'+id),
+            method  : 'PATCH',
+            success : resolve,
+            error   : reject
+        });
     }
+
+
 }
 
 module.exports = _user;

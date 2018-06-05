@@ -1,9 +1,15 @@
 {{#list}}
 <tr>
     <td>{{userName}}</td>
-    <td>{{email}}</td>
+    <td class="userId">{{id}}</td>
     <td>{{actualName}}</td>
     <td><a href="./studentDetail.html?id={{id}}" target="_blank" >查看</a></td>
+    {{#deleted}}
+    <td class="validate">移除黑名单</td>
+    {{/deleted}}
+    {{^deleted}}
+    <td class="delete">加入黑名单</td>
+    {{/deleted}}
 <tr>
 {{/list}}
 {{^list}}

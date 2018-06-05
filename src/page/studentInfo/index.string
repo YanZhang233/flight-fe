@@ -3,6 +3,18 @@
         <label class="info" for="username">用户名</label>
         <input type="text" class="form-control" id="username"  value="{{userName}}" readonly="readonly" >
     </div>
+    {{#userRole}}
+    <div class="form-group">
+        <label class="info" for="username">用户权限</label>
+        <input type="text" class="form-control" id="role"  readonly="readonly"  value="普通用户">
+    </div>
+    {{/userRole}}
+    {{^userRole}}
+     <div class="form-group">
+        <label class="info" for="username">用户权限</label>
+        <input type="text" class="form-control" id="role"  readonly="readonly"  value="志愿者">
+    </div>
+    {{/userRole}}
     <div class="form-group">
             <label class="info" for="name">真实姓名</label>
             <input type="text" class="form-control" id="name" value={{actualName}}>

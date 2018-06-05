@@ -2,6 +2,7 @@ require('./index.css');
 var _fl = require('../../util/fl.js');
 var _admin = require('../../service/admin-service.js');
 var _flight = require('../../service/flight-service.js');
+var _user = require('../../service/user-service.js');
 var Pagination = require('../../util/pagination/index.js');
 var templateIndex = require("./index.string");
 var requestTemplate = require('./request.string');
@@ -28,7 +29,7 @@ var page = {
             _this.loadRequestList();
         });
         $(document).on('click','#cancelRequest',function () {
-            var id = $('#requestId').html();
+            var id = $(this).siblings('.requestId').html();
             _flight.deleteById(id,function () {
                 _fl.successTips("操作成功");
             },function (msg) {
@@ -36,7 +37,7 @@ var page = {
             })
         });
         $(document).on('click','#permit',function () {
-            var id = $('#volunteerId').html();
+            var id = $(this).siblings('.volunteerId').html();
             _this.permit(id);
         });
         $(document).on('click','#listUsers',function () {
@@ -51,6 +52,24 @@ var page = {
             $('#pagination').html("");
             _this.loadList();
         });
+        $(document).on("click",'.delete',function () {
+            var id = $(this).siblings('.userId').html();
+            _user.deleteUser(id,function () {
+                _fl.successTips("Success");
+                _this.loadUsersList();
+            },function (msg) {
+                _fl.errorTips(msg);
+            })
+        });
+        $(document).on("click",".validate",function () {
+            var id = $(this).siblings('.userId').html();
+            _user.validateUser(id,function () {
+                _fl.successTips("Success");
+                _this.loadUsersList();
+            },function (msg) {
+                _fl.errorTips(msg);
+            })
+        })
     },
     onload: function(){
         var _this = this;
@@ -137,7 +156,7 @@ var page = {
             requestHtml = _fl.renderHtml(requestTemplate, {
                 list :  res.content
             });
-            $(".tab").html('<tr> <th>申请人</th> <th>详细情况</th> <th>撤销</th> </tr>');
+            $(".tab").html('<tr> <th>申请人</th> <th>ID</th>> <th>详细情况</th> <th>撤销</th> </tr>');
             $(".tab").append(requestHtml);
             _this.loadRequestPagination({
                 totalPages      : res.totalPages,
@@ -166,11 +185,14 @@ var page = {
         var _this       = this,
             requestHtml    = '';
         // 请求接口
-        _admin.listAllUsers(pageIndex,2, function(res){
+        _admin.listAllUsers(pageIndex,10, function(res){
+            res.content.forEach(function (value) {
+                value.deleted = (value.status===1);
+            });
             requestHtml = _fl.renderHtml(usersTemplate, {
                 list :  res.content
             });
-            $(".tab").html('<tr> <th>UserName</th> <th>Email</th> <th>真实姓名</th> <th>详细信息</th> </tr>');
+            $(".tab").html('<tr> <th>UserName</th> <th>用户ID</th> <th>真实姓名</th> <th>详情</th> <th>操作</th> </tr>');
             $(".tab").append(requestHtml);
             _this.loadUserPagination({
                 totalPages      : res.totalPages,

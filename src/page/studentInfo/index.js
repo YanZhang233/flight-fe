@@ -66,6 +66,7 @@ var page = {
     loadUserInfo : function(){
         var userHtml = '';
         _user.getCurUserInfo(function(res){
+            res.userRole = (res.role===0);
             userHtml = _fl.renderHtml(templateIndex, res);
             $('#updateFrom').html(userHtml);
         }, function(msg){

@@ -1,8 +1,9 @@
 {{#list}}
 <tr>
     <td><a href="./studentDetail.html?id={{requestUserId}}" target="_blank" class="student-name">{{requestUserName}}</a></td>
-    <td><a href="./requestDetail.html?id={{id}}" target="_blank" id="requestId">ID:{{id}}点击查看</a></td>
-    <td><a id="cancelRequest">撤销</a></td>
+    <td class="requestId" >{{id}}</td>
+    <td><a href="./requestDetail.html?id={{id}}" target="_blank">点击查看</a></td>
+    <td id="cancelRequest">撤销</td>
 <tr>
 {{/list}}
 {{^list}}
