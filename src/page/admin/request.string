@@ -3,7 +3,12 @@
     <td><a href="./studentDetail.html?id={{requestUserId}}" target="_blank" class="student-name">{{requestUserName}}</a></td>
     <td class="requestId" >{{id}}</td>
     <td><a href="./requestDetail.html?id={{id}}" target="_blank">点击查看</a></td>
+    {{#deleted}}
+    <td>已撤销</td>
+    {{/deleted}}
+    {{^deleted}}
     <td id="cancelRequest">撤销</td>
+    {{/deleted}}
 <tr>
 {{/list}}
 {{^list}}

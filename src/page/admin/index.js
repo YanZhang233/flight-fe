@@ -153,6 +153,10 @@ var page = {
             requestHtml    = '';
         // 请求接口
         _flight.listAll(pageIndex,10, function(res){
+            res.content.forEach(function (element) {
+                element.deleted = (element.status===-1);
+            });
+            res.content.deleted = (res.content.status===-1);
             requestHtml = _fl.renderHtml(requestTemplate, {
                 list :  res.content
             });
