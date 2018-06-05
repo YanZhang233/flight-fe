@@ -14,31 +14,15 @@
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
         申请人
-        <span  class="ml-auto"><a href="./studentInfo.html?id={{requestUserId}}">{{requestUserName}}</a></span>
+        <span  class="ml-auto"><a href="./studentDetail.html?id={{requestUserId}}">{{requestUserName}}</a></span>
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
         接机人
-        <span class="ml-auto"><a href="./studentInfo.html?id={{takenUserId}}">{{takenUserName}}</a></span>
-    </li>
-    <li class="list-unstyled-item list-hours-item d-flex">
-        机场
-        <span class="ml-auto">{{airport}}</span>
-    </li>
-    <li class="list-unstyled-item list-hours-item d-flex">
-        微信
-        <span class="ml-auto">dandan</span>
-    </li>
-    <li class="list-unstyled-item list-hours-item d-flex">
-        目的地
-        <span class="ml-auto">{{destination}}</span>
+        <span class="ml-auto"><a href="./studentDetail.html?id={{takenUserId}}">{{takenUserName}}</a></span>
     </li>
     <li class="list-unstyled-item list-hours-item d-flex">
         接机时间
         <span class="ml-auto">{{time}}</span>
-    </li>
-    <li class="list-unstyled-item list-hours-item d-flex">
-        航班信息
-       <span class="ml-auto">{{flightInfo}}</span>
     </li>
     <a class="btn btn-primary" href="./requestDetail.html?id={{id}}">查看具体信息</a>
     <input type="button" class="cancel btn btn-primary"  value="取消申请" />
